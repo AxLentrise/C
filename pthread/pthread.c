@@ -12,11 +12,11 @@ int global_int = 0;
 
 void* thread_(void* vargp) {
     do {
-        //pthread_mutex_lock(&mutex);
+        pthread_mutex_lock(&mutex);
         ++global_int;
-        //pthread_mutex_unlock(&mutex);
+        pthread_mutex_unlock(&mutex);
 
-        //printf("\33[2K\rGlobal: %7d | Thread: %ld", global_int, pthread_self());
+        printf("\33[2K\rGlobal: %7d | Thread: %ld", global_int, pthread_self());
     } while (global_int < MM);
     return NULL;
 }
